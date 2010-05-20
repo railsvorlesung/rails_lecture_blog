@@ -1,3 +1,5 @@
 comment_id = post_comments_id(@post_id)
 page.insert_html :bottom, comment_id, :partial => 'blog/comment', :locals => {:comment => @comment}
-page.visual_effect :highlight, comment_id
+page.select("##{comment_id} li").last.visual_effect :highlight
+
+# page.visual_effect :highlight, last_el
