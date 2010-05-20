@@ -1,0 +1,11 @@
+<h1>Login</h1>
+
+<% form_tag session_path do %>
+	<p>Benutzername:</p>
+	<%= text_field_tag "username" %>
+	<p>Password:</p>
+	<%= password_field_tag "password" %>
+
+	<br/>	<br/>
+	<%= submit_tag "Anmelden" %>
+<% end %>

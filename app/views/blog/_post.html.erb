@@ -1,0 +1,11 @@
+<h3><%= post.title %></h3>
+<p>
+<%= post.body %>	
+</p>
+<% content_tag :ul, :id => post_comments_id(post.id) do %>
+	<% post.comments.each do |comment| %>
+		<%= render :partial => 'comment', :locals => { :comment => comment } %>
+	<% end %>
+<% end %>
+<%= render :partial => 'comment_form', :locals => { :post => post } %>
+<hr/>

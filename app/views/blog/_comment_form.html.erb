@@ -1,0 +1,15 @@
+<%= link_to_write_comment(post) %>
+<br/>
+
+<% content_tag :div, :id => comment_form_id(post), :style => 'display:none' do %>
+	
+	<% remote_form_for Comment.new(:post => post) do |f| %>
+		<%= f.text_area "body", :rows => 2 %>
+		<%= f.hidden_field "post_id" %>
+		<br/>
+		<%= f.submit %>
+	<% end %>
+	
+<% end %>
+
+
