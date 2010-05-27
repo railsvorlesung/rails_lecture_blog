@@ -3,11 +3,11 @@ module BlogHelper
     "comment_form_id_#{post.id}"
   end
   
-  def post_comments_id(post_id)
-    "post_ul_id_#{post_id}"
+  def post_comments_id(post_id, label = "")
+    "post_ul_id_#{post_id}_#{label}"
   end
   
-  def link_to_write_comment(post)
-    link_to_function "Kommentar schreiben", "$('#{comment_form_id(post)}').show();"
+  def link_to_show_comments(post)
+    link_to_function "Kommentare anzeigen", "$('#{post_comments_id(post.id, :div)}').show();"
   end
 end

@@ -1,0 +1,21 @@
+<% form_for(@post) do |f| %>
+  <%= f.error_messages %>
+
+	<%= render :partial => 'categories' %>
+
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :body %><br />
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.label :published %><br />
+    <%= f.check_box :published %>
+  </p>
+  <p>
+    <%= f.submit 'Save' %>
+  </p>
+<% end %>

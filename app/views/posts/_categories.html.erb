@@ -1,0 +1,14 @@
+Kategorien
+<br />
+
+<% @categories.each do |category| %>
+
+    <%= check_box_tag "post[category_ids][]", "#{category.id}", @post.categories.include?(category) %>
+    &nbsp;
+
+
+    <%= "#{category.title}" %>
+
+    <br />
+    
+<% end %>

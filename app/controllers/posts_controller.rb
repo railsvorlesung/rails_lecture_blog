@@ -1,4 +1,6 @@
 class PostsController < AuthenticatedController
+
+  before_filter :load_categories, :only => [:new, :edit]
   
   # GET /posts
   # GET /posts.xml
@@ -26,7 +28,7 @@ class PostsController < AuthenticatedController
   # GET /posts/new.xml
   def new
     @post = Post.new
-
+    
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @post }
@@ -82,5 +84,11 @@ class PostsController < AuthenticatedController
       format.html { redirect_to(posts_url) }
       format.xml  { head :ok }
     end
+  end
+  
+  protected
+  
+  def load_categories
+    @categories = Category.all
   end
 end

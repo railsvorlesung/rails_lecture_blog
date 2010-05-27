@@ -2,10 +2,17 @@
 <p>
 <%= post.body %>	
 </p>
-<% content_tag :ul, :id => post_comments_id(post.id) do %>
-	<% post.comments.each do |comment| %>
-		<%= render :partial => 'comment', :locals => { :comment => comment } %>
+
+<% div(:style =>"display:none;", :id => post_comments_id(post.id, :div)) do %>
+	<% ul :id => post_comments_id(post.id) do %>
+		<% post.comments.each do |comment| %>
+			<%= render :partial => 'comment', :locals => { :comment => comment } %>
+		<% end %>
 	<% end %>
+
+	<%= render :partial => 'comment_form', :locals => { :post => post } %>
 <% end %>
-<%= render :partial => 'comment_form', :locals => { :post => post } %>
+<%= link_to_show_comments(post) %>
+
+
 <hr/>
