@@ -1,7 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :categories
 
-  map.resources :blog, :controller => :blog
+  map.resources :blog, :controller => :blog, :collection => {
+    :rss => :get
+  }
   map.resources :posts
   map.resources :comments
   map.resource :session
